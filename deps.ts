@@ -10,7 +10,7 @@ export {
   cardiffFormatter,
   cardiffFormatterParam,
   isCardiffFormatterParamTypeSafe,
-} from "https://github.com/OverGlass/CardiffFormatter/blob/master/mod.ts";
+} from "https://raw.githubusercontent.com/OverGlass/CardiffFormatter/master/mod.ts";
 
 export {
   fetchLogicAutoPdf,
