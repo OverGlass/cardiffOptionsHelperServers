@@ -4,7 +4,6 @@ import {
   cardiffFormatter,
   isCardiffFormatterParamTypeSafe,
   fetchLogicAutoPdf,
-  pickedTexts,
   getArrayOfAvailableEquiments,
   getArrayOfNotAvailableEquiments,
   getArrayOfOptions,
