@@ -7,10 +7,22 @@ const config: DenonConfig = {
       desc: "Run oak web-server http://localhost:8080/",
       allow: ["net", "read", "write", "run"],
     },
+    startApi_prod: {
+      cmd: "deno run api.ts",
+      desc: "Run oak web-server http://localhost:8080/",
+      allow: ["net", "read", "write", "run"],
+      watch: false,
+    },
     start: {
       cmd: "deno run static.ts",
       desc: "Run oak web-server http://localhost:8000/",
       allow: ["net", "read"],
+    },
+    start_prod: {
+      cmd: "deno run static.ts",
+      desc: "Run oak web-server http://localhost:8000/",
+      allow: ["net", "read"],
+      watch: false,
     },
   },
 };
