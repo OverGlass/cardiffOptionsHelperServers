@@ -5,6 +5,11 @@ import { $cardiffFormatter, $getLogicAutoTextsbyRef } from "./apiMiddleware.ts";
 const api = new Application();
 const router = new Router();
 
+api.addEventListener("error", (evt) => {
+  // Will log the thrown error to the console.
+  console.log(evt.error);
+});
+
 router
   .post("/api/cardiffFormat", $cardiffFormatter)
   .post("/api/getLogicAutoTextsByRef", $getLogicAutoTextsbyRef);
