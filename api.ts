@@ -1,6 +1,17 @@
 import { Application, Router } from "./deps.ts";
 import { oakCors } from "https://deno.land/x/cors/mod.ts";
-import { $cardiffFormatter, $getLogicAutoTextsbyRef } from "./apiMiddleware.ts";
+import asyncLogicAutoStock from "./asyncLogicAutoStock.ts";
+import {
+  $cardiffFormatter,
+  $getLogicAutoTextsbyRef,
+  $getLogicAutobySearch,
+} from "./apiMiddleware.ts";
+
+try {
+  await asyncLogicAutoStock();
+} catch (e) {
+  console.log(e);
+}
 
 const api = new Application();
 const router = new Router();
@@ -12,7 +23,8 @@ api.addEventListener("error", (evt) => {
 
 router
   .post("/api/cardiffFormat", $cardiffFormatter)
-  .post("/api/getLogicAutoTextsByRef", $getLogicAutoTextsbyRef);
+  .post("/api/getLogicAutoTextsByRef", $getLogicAutoTextsbyRef)
+  .post("/api/getLogicAutobySearch", $getLogicAutobySearch);
 
 api.use(oakCors());
 api.use(router.routes());

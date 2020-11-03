@@ -10,6 +10,8 @@ import {
   getPdfTextFromBinary,
 } from "./deps.ts";
 
+import { searchLogicAuto } from "./handleLogicAutoStock.ts";
+
 export async function $cardiffFormatter(c: Context, next: any) {
   await next();
   const requestBodyValue = await c.request.body()?.value;
@@ -47,6 +49,26 @@ export async function $getLogicAutoTextsbyRef(c: Context, next: any) {
       standardEquipements: getArrayOfAvailableEquiments(text),
       notAvailableStandardEquipements: getArrayOfNotAvailableEquiments(text),
     });
+  } catch (e) {
+    statusResponsesError(c, Status.BadRequest, e);
+  }
+}
+
+export async function $getLogicAutobySearch(c: Context, next: any) {
+  const requestBodyValue = await c.request.body()?.value;
+
+  if (!(typeof requestBodyValue === "string"))
+    statusResponsesError(c, Status.BadRequest, "Expecting JSON");
+
+  const payload = JSON.parse(requestBodyValue);
+  if (!payload.terms)
+    statusResponsesError(c, Status.BadRequest, "Missing terms prop");
+  try {
+    await next();
+    const result = await searchLogicAuto(payload.terms);
+    c.response.status = 200;
+    c.response.type = "json";
+    c.response.body = JSON.stringify(result);
   } catch (e) {
     statusResponsesError(c, Status.BadRequest, e);
   }

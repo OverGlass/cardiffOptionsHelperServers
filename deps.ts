@@ -1,4 +1,5 @@
 export { pipe } from "https://deno.land/x/fae@v0.6.2/mod.ts";
+export { config } from "https://deno.land/x/dotenv@v0.5.0/mod.ts";
 export {
   Application,
   Router,
