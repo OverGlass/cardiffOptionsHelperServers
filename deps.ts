@@ -10,7 +10,7 @@ export {
 export {
   cardiffFormatter,
   isCardiffFormatterParamTypeSafe,
-} from "https://raw.githubusercontent.com/OverGlass/CardiffFormatter/v0.0.1/mod.ts";
+} from "https://raw.githubusercontent.com/OverGlass/CardiffFormatter/v0.0.3/mod.ts";
 
 export {
   fetchLogicAutoPdf,
@@ -19,4 +19,4 @@ export {
   getArrayOfAvailableEquiments,
   getArrayOfNotAvailableEquiments,
   getArrayOfOptions,
-} from "https://raw.githubusercontent.com/OverGlass/LogicAutoPDFScrapper/master/mod.ts";
+} from "https://raw.githubusercontent.com/OverGlass/LogicAutoPDFScrapper/v0.0.1/mod.ts";
