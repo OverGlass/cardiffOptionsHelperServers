@@ -9,7 +9,6 @@ export {
 
 export {
   cardiffFormatter,
-  cardiffFormatterParam,
   isCardiffFormatterParamTypeSafe,
 } from "https://raw.githubusercontent.com/OverGlass/CardiffFormatter/v0.0.1/mod.ts";
 
