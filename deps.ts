@@ -5,7 +5,7 @@ export {
   Router,
   send,
   Context,
-} from "https://deno.land/x/oak@v6.3.1/mod.ts";
+} from "https://raw.githubusercontent.com/OverGlass/oak/v6.3.3/mod.ts";
 
 export {
   cardiffFormatter,
