@@ -19,4 +19,4 @@ export {
   getArrayOfAvailableEquiments,
   getArrayOfNotAvailableEquiments,
   getArrayOfOptions,
-} from "https://raw.githubusercontent.com/OverGlass/LogicAutoPDFScrapper/v0.0.1/mod.ts";
+} from "https://raw.githubusercontent.com/OverGlass/LogicAutoPDFScrapper/v0.0.2/mod.ts";
