@@ -1,11 +1,7 @@
 import { Application, Router } from "./deps.ts";
 import { oakCors } from "https://deno.land/x/cors/mod.ts";
 import asyncLogicAutoStock from "./asyncLogicAutoStock.ts";
-import {
-  $cardiffFormatter,
-  $getLogicAutoTextsbyRef,
-  $getLogicAutobySearch,
-} from "./apiMiddleware.ts";
+import { $cardiffFormatter, $getLogicAutoTextsbyRef, $getLogicAutobySearch } from "./apiMiddleware.ts";
 
 try {
   await asyncLogicAutoStock();
@@ -16,7 +12,7 @@ try {
 const api = new Application();
 const router = new Router();
 
-api.addEventListener("error", (evt) => {
+api.addEventListener("error", evt => {
   // Will log the thrown error to the console.
   console.log(evt.error);
 });
@@ -30,4 +26,10 @@ api.use(oakCors());
 api.use(router.routes());
 api.use(router.allowedMethods());
 
-await api.listen({ port: 8080 });
+while (true) {
+  try {
+    await api.listen({ port: 8080 });
+  } catch (e) {
+    console.log(e);
+  }
+}
