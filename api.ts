@@ -10,11 +10,13 @@ try {
 }
 
 const api = new Application();
+const controller = new AbortController();
+const { signal } = controller;
 const router = new Router();
 
 api.addEventListener("error", evt => {
   // Will log the thrown error to the console.
-  console.log(evt.error);
+  console.log("Event Error : \n", evt.error);
 });
 
 router
@@ -28,8 +30,9 @@ api.use(router.allowedMethods());
 
 while (true) {
   try {
-    await api.listen({ port: 8080 });
+    await api.listen({ port: 8080, signal });
   } catch (e) {
-    console.log(e);
+    console.log("Listener Error :\n", e);
+    controller.abort();
   }
 }
