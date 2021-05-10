@@ -30,10 +30,10 @@ api.use(router.allowedMethods());
 
 while (true) {
   try {
-    console.log("Start API on 8080");
+    console.log("\nStart API on 8080");
     await api.listen({ port: 8080, signal });
   } catch (e) {
-    console.log("Listener Error :\n", e);
+    console.log("\nListener Error :\n -> ", e);
     controller.abort();
   }
 }
