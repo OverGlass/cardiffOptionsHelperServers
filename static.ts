@@ -9,6 +9,7 @@ app.use(staticServerMiddlware);
 
 while (true) {
   try {
+    console.log("Start Static Serv on 8000");
     await app.listen({ port: 8000, signal });
   } catch (e) {
     console.log(e);
