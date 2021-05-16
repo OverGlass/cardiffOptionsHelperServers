@@ -17,6 +17,7 @@ const router = new Router();
 api.addEventListener("error", evt => {
   // Will log the thrown error to the console.
   console.log("Event Error : \n", evt.error);
+  controller.abort();
 });
 
 router
@@ -34,6 +35,5 @@ while (true) {
     await api.listen({ port: 8080, signal });
   } catch (e) {
     console.log("\nListener Error :\n -> ", e);
-    controller.abort();
   }
 }
