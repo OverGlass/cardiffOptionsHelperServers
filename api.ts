@@ -22,8 +22,6 @@ async function launchServer() {
   api.addEventListener("error", async evt => {
     // Will log the thrown error to the console.
     console.log("Event Error : \n", evt.error);
-    controller.abort();
-    await launchServer();
   });
 
   router
@@ -42,8 +40,6 @@ async function launchServer() {
   api.use(router.allowedMethods());
   console.log("\nStart API on 8080");
   await api.listen({ port: 8080, signal });
-  controller.abort();
-  await launchServer();
 }
 
 try {
